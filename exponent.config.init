@@ -1,0 +1,41 @@
+/**
+ * * ———————————————————————— *
+ * * ⚙️ Exponent's Settings   *
+ * * ———————————————————————— *
+ *
+ * This is mostly stuff used to make Webpack work, but everything can and should
+ * be imported into your JS bundle, so you can extend this file with any other
+ * configuration flag you want. You just have to export it with the rest! 🤙
+ */
+
+// enables various build options depending on wether it's 'production' or 'development'
+const mode = 'development';
+
+// generated Javascript file name: e.g. "exponent.js"
+const jsBundleFilename = 'app.js';
+
+// generated CSS filename: e.g. "styles.css"
+const cssStylesFilename = 'styles.css';
+
+// folder location of this app's entry point relative to the domain root
+const publicPath = 'dist';
+
+// same, but for assets (will be inside `publicPath`)
+const assetsPublicPath = 'assets';
+
+// the various paths to Exponent's components
+const paths = {
+  source: './src',
+  appRoot: './src/js/',
+  entryPoint: './src/js/index.js',
+  destination: './' + publicPath,
+};
+
+module.exports = {
+  jsBundleFilename,
+  cssStylesFilename,
+  paths,
+  publicPath,
+  assetsPublicPath,
+  mode,
+};

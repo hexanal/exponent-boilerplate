@@ -1,0 +1,18 @@
+# project "build" files & directories
+exponent.config.js
+dist
+node_modules
+
+# sourcemaps!
+*.css.map
+*.js.map
+
+# filesystem and log stuff
+.DS_Store
+.vscode
+npm-debug.log
+
+# if you need to ignore local files or folders
+__archive
+*.bak.*
+_bak

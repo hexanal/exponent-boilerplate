@@ -1,0 +1,30 @@
+.example {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: lightgrey;
+  border-radius: 0.5rem;
+  border: 0.5rem solid var(--color-subtle);
+  background-color: white;
+  transition: padding 500ms ease-out, border 500ms ease-out;
+
+  h2 {
+    margin: 0 0 1rem;
+    padding: 0.75rem;
+  }
+
+  &[data-status=loaded] {
+    padding: 1rem;
+    color: white;
+    background-color: var(--color-body);
+  }
+
+  &.state-scrolling-up {
+    border-color: var(--color-active);
+  }
+}
+
+.example__scroll {
+  font-size: 6rem;
+}

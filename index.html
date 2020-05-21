@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Exponent</title>
+  <meta name="description" content="arggghhhhhhhhh!">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+  <link rel="stylesheet" href="/dist/styles.css" />
+</head>
+
+<body>
+  <div class="🔴">
+    <h1>Exponent</h1>
+
+    <!--
+    A very basic component example
+    Notice the three different data attributes.
+    Look into the `/src/js/components/example/example.js` file for a description
+    -->
+    <div class="example" data-component="example">
+      <h2 data-ui="heading"></h2>
+      <div class="example__scroll" data-ui="scroll-dir">*️⃣</div>
+    </div>
+
+    <!--
+    The classic "counter" component.
+    This also shows that components can be nested, and that functions exist that
+      allow inter-component communication.
+    -->
+    <div class="🔢">
+
+      <div
+        class="counter"
+        data-component="counter"
+        data-counter-id="first-counter"
+      >
+        <div class="counter__controls">
+          <h2 data-ui="heading"></h2>
+          <h3 data-ui="id"></h3>
+          <button data-control="incrementor">+</button>
+          <button data-control="decrementor">-</button>
+        </div>
+      </div>
+
+      <div class="counter" data-component="counter" data-counter-id="second-counter">
+        <div class="counter__controls">
+          <h2 data-ui="heading"></h2>
+          <h3 data-ui="id"></h3>
+          <button data-control="incrementor">+</button>
+          <button data-control="decrementor">-</button>
+        </div>
+
+        <div class="this-counter-is-nested counter__child">
+          <div class="counter" data-component="counter" data-counter-id="one-level-down-counter">
+            <div class="counter__controls">
+              <h2 data-ui="heading"></h2>
+              <h3 data-ui="id"></h3>
+              <button data-control="incrementor">+</button>
+              <button data-control="decrementor">-</button>
+            </div>
+
+            <div class="this-counter-is-even-deeper counter__child">
+              <div class="counter" data-component="counter" data-counter-id="deep-nested-counter">
+                <div class="counter__controls">
+                  <h2 data-ui="heading"></h2>
+                  <h3 data-ui="id"></h3>
+                  <button data-control="incrementor">+</button>
+                  <button data-control="decrementor">-</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- done with the counters, pfew! -->
+    </div>
+
+    <!-- that concludes it then! -->
+  </div>
+
+  <script src="/dist/app.js"></script>
+</body>
+</html>

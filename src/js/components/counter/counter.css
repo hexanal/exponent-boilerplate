@@ -1,0 +1,53 @@
+.counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  color: var(--color-body);
+  background-color: white;
+  border: 0.5rem solid var(--color-body);
+  border-radius: var(--rounded-corners);
+}
+
+.counter__controls {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+}
+.counter__controls h2 {
+  flex-grow: 1;
+  padding: 0 2rem;
+  font-size: 3rem;
+  line-height: 0;
+}
+.counter__controls h3 {
+  padding: 0 2rem;
+}
+.counter__controls button {
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0.25rem;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 2rem;
+  line-height: 0;
+  color: var(--color-body);
+  border: 2px solid currentColor;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.counter__controls button:hover {
+  color: var(--color-active);
+}
+.counter__controls button:focus {
+  color: var(--color-subtle);
+}
+
+.counter__child {
+
+}
