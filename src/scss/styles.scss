@@ -3,18 +3,30 @@
 
 :root {
   --font-body: 'IBM Plex Mono', Menlo, Monaco, monospace;
-  --color-body: hotpink;
-  --color-active: orange;
-  --color-subtle: orangered;
-  --rounded-corners: 0.5rem;
+
+  --color-body: #D160D7;
+  --color-active: #FAB926;
+  --color-subtle: #49A57B;
+  --color-bright: #EC464A;
+  --color-midnight: #658CEE;
+  --color-flash: #01FF96;
 }
 
 body {
   font-family: var(--font-body);
   color: var(--color-body);
   background-image: url('~assets/images/bg.png');
-  background-position: center;
+  background-position: 0 0;
   background-size: cover;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  * {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
 }
 
 * {
@@ -22,12 +34,30 @@ body {
 }
 
 .🔴{
+  position: relative;
+  z-index: 2;
   max-width: 42rem;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  margin: 10rem auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+  @media (min-width: 42rem) {
+    margin: 5rem auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.❎{
+  position: fixed;
+  z-index: 1;
+  top: 2rem;
+  left: -5rem;
+  font-size: 150vw;
+  line-height: 0;
+  color: white;
+  text-shadow: 0.5rem 0.5rem 0 var(--color-bright)
 }
 
 [data-status=loading] {

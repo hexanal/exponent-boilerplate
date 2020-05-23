@@ -16,7 +16,7 @@ export default params => {
    * components. So it's a convention that also helps you avoid running into
    * some trouble down the road! ✌️
    */
-  ui.heading.innerHTML = 'Hello World!';
+  ui.heading.innerHTML = 'Welcome to Exponent!';
 
   /**
    * 'messaging' is a middleware that allows for inter-component communication.

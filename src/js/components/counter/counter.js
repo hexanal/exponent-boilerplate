@@ -35,12 +35,16 @@ function Counter({ui, controls, element, children, messaging}) {
    */
 
   this.inc = (e, amount = 1) => {
+    e.preventDefault();
+    e.stopPropagation();
     this.setCount(this.state.count + amount);
     children.map(child => child.inc(e, 10)); // this exemplifies one possible use case for 'children'
       // note: I haven't figured a good way to make child->parent communication easy yet...
   }
 
   this.dec = (e, amount = 1) => {
+    e.preventDefault();
+    e.stopPropagation();
     this.setCount(this.state.count - amount);
     children.map(child => child.dec(e, 10));
   }
@@ -48,11 +52,13 @@ function Counter({ui, controls, element, children, messaging}) {
   this.setCount = function(count) {
     this.state.count = count;
     Storage.set(localStoreId, count);
-    ui.heading.innerHTML = count;
+    ui.heading.textContent = count;
   };
 
   ui.heading.innerHTML = this.state.count; // initializing our children elements
   ui.id.innerHTML = counterId;
+  controls.incrementor.addEventListener('touchend', this.inc);
+  controls.decrementor.addEventListener('touchend', this.dec);
   controls.incrementor.addEventListener('click', this.inc);
   controls.decrementor.addEventListener('click', this.dec);
 
@@ -62,7 +68,7 @@ function Counter({ui, controls, element, children, messaging}) {
       const { target } = e.target.dataset;
 
       // dispatch a message using the 'messaging' middleware
-      // note: see `example2.js` for more info on that
+      // note: see `example.js` for more info on that
       messaging.dispatch({
         id: 'RESET_COUNTER',
         payload: { target }

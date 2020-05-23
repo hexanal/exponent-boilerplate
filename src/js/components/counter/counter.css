@@ -3,27 +3,52 @@
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  margin: 0.5rem 0;
-  padding: 0.5rem;
-  color: var(--color-body);
-  background-color: white;
-  border: 0.5rem solid var(--color-body);
-  border-radius: var(--rounded-corners);
+  padding: 1rem;
+  margin-top: 2rem;
+  color: white;
+  background-color: var(--color-midnight);
+}
+.counter[data-counter-bg="active"] {
+  background-color: var(--color-active);
+}
+.counter[data-counter-bg="bright"] {
+  background-color: var(--color-bright);
+}
+.counter[data-counter-bg="subtle"] {
+  background-color: var(--color-subtle);
 }
 
 .counter__controls {
   display: flex;
-  justify-content: stretch;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  padding: 0.5rem 0;
+}
+@media (min-width: 42rem) {
+  .counter__controls {
+    justify-content: stretch;
+    flex-wrap: nowrap;
+  }
 }
 .counter__controls h2 {
   flex-grow: 1;
   padding: 0 2rem;
   font-size: 3rem;
   line-height: 0;
+  text-align: center;
 }
 .counter__controls h3 {
+  width: 100%;
   padding: 0 2rem;
+  text-align: center;
+  font-weight: normal;
+  opacity: 0.25;
+}
+@media (min-width: 42rem) {
+  .counter__controls h3 {
+    width: auto;
+  }
 }
 .counter__controls button {
   display: flex; align-items: center; justify-content: center;
@@ -34,18 +59,43 @@
   padding: 0;
   font-family: var(--font-body);
   font-size: 2rem;
+  font-weight: bold;
   line-height: 0;
-  color: var(--color-body);
-  border: 2px solid currentColor;
+  color: white;
+  border: 0.25rem solid currentColor;
   background-color: transparent;
   border-radius: 50%;
   cursor: pointer;
 }
-.counter__controls button:hover {
-  color: var(--color-active);
-}
 .counter__controls button:focus {
-  color: var(--color-subtle);
+  background-color: var(--color-flash);
+  border-color: var(--color-flash);
+  outline: none;
+}
+@media (hover: hover) {
+  .counter__controls button:hover {
+    background-color: var(--color-flash);
+    border-color: var(--color-flash);
+    box-shadow: 0 0 0 0.25rem white;
+    animation: blap 300ms cubic-bezier(.45,-0.15,.05,1.5) forwards;
+  }
+}
+.counter__controls button:active {
+  background-color: var(--color-flash);
+  border-color: var(--color-flash);
+  box-shadow: 0 0 0 0.25rem white;
+  animation: bloop 400ms cubic-bezier(.45,-0.15,.05,1.5) forwards;
+}
+
+@keyframes blap {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+@keyframes bloop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.1); box-shadow: 0 0 0 0.5rem white; }
+  100% { transform: scale(1); box-shadow: 0 0 0 0.25rem white; }
 }
 
 .counter__child {
