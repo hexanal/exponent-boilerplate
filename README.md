@@ -13,21 +13,21 @@ you should then see a *Hello World!* of sorts.
 
 ## What is it?
 
-A lightweight boilerplate/framework thing that hopefully helps with:
+### 👌 A lightweight boilerplate/framework thing that hopefully helps with:
 
 - getting started in record time to build prototypes, a small landing page, etc.
 - using somewhat modern tools -> webpack, Sass, assets minification, etc.
 - with a focus on simplicity and minimalism
 - using a **Component** system that helps you organize your JS code
 
-What it should be used as:
+### 👍 What it should be used as:
 
 - a way to augment Wordpress/Drupal websites in need of some more interactivity
 - building static websites in straight HTML and straight JS, but with all the
 compilation pipeline taken care of
 - as a "starter kit" that you improve with new components and middlewares.
 
-What it's **not**:
+### 👎 What it's *not*:
 
 - a powerful full-featured React-powered opiniated UI framework using
 bleeding-edge technology
