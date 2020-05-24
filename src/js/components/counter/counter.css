@@ -17,6 +17,9 @@
 .counter[data-counter-bg="subtle"] {
   background-color: var(--color-subtle);
 }
+.counter[data-counter-bg="body"] {
+  background-color: var(--color-body);
+}
 
 .counter__controls {
   display: flex;
@@ -51,6 +54,7 @@
   }
 }
 .counter__controls button {
+  overflow: hidden;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   width: 3.5rem;
@@ -64,7 +68,7 @@
   color: white;
   border: 0.25rem solid currentColor;
   background-color: transparent;
-  border-radius: 50%;
+  border-radius: 100rem;
   cursor: pointer;
 }
 .counter__controls button:focus {

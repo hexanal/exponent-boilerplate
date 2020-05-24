@@ -16,7 +16,7 @@ export default params => {
    * components. So it's a convention that also helps you avoid running into
    * some trouble down the road! ✌️
    */
-  ui.heading.innerHTML = 'Welcome to Exponent!';
+  ui.heading.textContent = 'Welcome to exponent!';
 
   /**
    * 'messaging' is a middleware that allows for inter-component communication.
@@ -29,7 +29,6 @@ export default params => {
    * `/js/index.js`
    */
   messaging.subscribe('CHANGED_SCROLL_DIR', dir => {
-    ui['scroll-dir'].innerHTML = dir === 'UP' ? '🔼' : '🔽';
     element.classList.toggle('state-scrolling-up', dir === 'UP');
   });
 }
