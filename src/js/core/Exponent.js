@@ -1,10 +1,7 @@
-import settings from 'settings';
-
 const Exponent = function() {
 
   // 'overrideable' user settings
   this.settings = {
-    ...settings,
     mode: 'development',
     componentSelector: 'component',
     uiSelector: 'ui',
@@ -23,6 +20,12 @@ const Exponent = function() {
   /**
    * * Public Functions for frontend devs
    */
+
+  this.configure = function(settings) {
+    this.settings = { ...this.settings, ...settings };
+
+    return this;
+  }
 
   this.use = function(middlewares) {
     this.middlewares = this.middlewares.concat(middlewares);
@@ -89,6 +92,7 @@ const Exponent = function() {
   }
 
   this.mountComponentOnElement = (componentFn, id, element) => {
+    const { uiSelector, controlSelector } = this.settings;
     const childrenComponents = this.findChildrenComponents(element);
     const ui = this.getComponentUIElements(element, childrenComponents);
     const controls = this.getComponentControlElements(element, childrenComponents);
@@ -97,8 +101,8 @@ const Exponent = function() {
     const defaultProps = {
       id,
       element,
-      ui,
-      controls,
+      [uiSelector]: ui,
+      [controlSelector]: controls,
       children,
     };
 
@@ -195,7 +199,7 @@ const Exponent = function() {
     const selector = this.getSelector(this.settings.uiSelector);
     const children = this.findChildrenElements(selector, element, childrenComponents);
 
-    children.forEach(el => ( ui[el.dataset.ui] = el ) );
+    children.forEach(el => ( ui[el.dataset[this.settings.uiSelector]] = el ) );
 
     return ui;
   }
@@ -205,7 +209,7 @@ const Exponent = function() {
     const selector = this.getSelector(this.settings.controlSelector);
     const children = this.findChildrenElements(selector, element, childrenComponents);
 
-    children.forEach(el => ( controls[el.dataset.control] = el ) );
+    children.forEach(el => ( controls[el.dataset[this.settings.controlSelector]] = el ) );
 
     return controls;
   }
@@ -221,6 +225,6 @@ const Exponent = function() {
 const ExponentApp = new Exponent();
 
 // devmode
-if (settings.mode === 'development') window.Exponent = ExponentApp;
+if (ExponentApp.settings.mode === 'development') window.Exponent = ExponentApp;
 
 export default ExponentApp;

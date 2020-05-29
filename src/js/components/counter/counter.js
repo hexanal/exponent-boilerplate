@@ -22,7 +22,7 @@ import './counter.css'; // importing of straight css is always allowed
   * cool? ok let's proceed
   *
   */
-function Counter({ui, controls, element, children, messaging}) {
+function Counter({ui, control, element, children, messaging}) {
   const { counterId } = element.dataset; // that's a custom attribute I use to keep track of who's who
   const localStoreId = `counter-${counterId}`; // keeping track of the localStorage id
 
@@ -57,14 +57,14 @@ function Counter({ui, controls, element, children, messaging}) {
 
   ui.heading.innerHTML = this.state.count; // initializing our children elements
   ui.id.innerHTML = counterId;
-  controls.incrementor.addEventListener('touchend', this.inc);
-  controls.decrementor.addEventListener('touchend', this.dec);
-  controls.incrementor.addEventListener('click', this.inc);
-  controls.decrementor.addEventListener('click', this.dec);
+  control.incrementor.addEventListener('touchend', this.inc);
+  control.decrementor.addEventListener('touchend', this.dec);
+  control.incrementor.addEventListener('click', this.inc);
+  control.decrementor.addEventListener('click', this.dec);
 
   // sometimes we don't know if the element was included by the developer
-  if (controls['reset']) {
-    controls['reset'].addEventListener('click', e => {
+  if (control['reset']) {
+    control['reset'].addEventListener('click', e => {
       const { target } = e.target.dataset;
 
       // dispatch a message using the 'messaging' middleware

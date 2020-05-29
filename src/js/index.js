@@ -1,8 +1,8 @@
-// load your styles, Webpack's gonna take care of ya
-import '../scss/styles.scss';
-
 // load the core "lib"
 import Exponent from 'core/Exponent';
+
+// load your project settings
+import settings from './settings';
 
 // middlewares: kind of like plugins
 // they "augment" the props that are passed to components
@@ -13,9 +13,18 @@ import counter from 'components/counter/counter';
 import example from 'components/example/example';
 import scroll from 'components/scroll/scroll';
 
+// load your styles, and webpack's gonna take care of ya
+import '../scss/styles.scss';
+
 /* that's one way to do it: */
 Exponent
-  // The 'use' method expects an array of middlewares (or just one, eh)
+  /**
+   * The configure method allows you to override Exponent's default settings;
+   * it expects an object.
+   */
+  .configure(settings)
+
+  /* The 'use' method expects an array of middlewares (or just one, eh) */
   .use([ Messaging ])
 
   /**
