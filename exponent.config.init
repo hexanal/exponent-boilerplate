@@ -8,8 +8,8 @@
  * configuration flag you want. You just have to export it with the rest! 🤙
  */
 
-// enables various build options depending on wether it's 'production' or 'development'
-const mode = 'development';
+// import settings file, usually located at `./src/js/settings.js`
+const settings = require('./src/js/settings.js');
 
 // generated Javascript file name: e.g. "exponent.js"
 const jsBundleFilename = 'app.js';
@@ -37,5 +37,5 @@ module.exports = {
   paths,
   publicPath,
   assetsPublicPath,
-  mode,
+  settings
 };
