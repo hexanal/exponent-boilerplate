@@ -4,10 +4,9 @@ const ClosurePlugin = require('closure-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const ExponentConfig = require('./exponent.config.js');
-const { mode } = ExponentConfig;
 
 module.exports = {
-  mode,
+  mode: ExponentConfig.settings.mode,
   devtool: 'source-map',
 
   module: {
@@ -115,7 +114,7 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: `${ExponentConfig.cssStylesFilename}`,
-      hmr: mode === 'development'
+      hmr: ExponentConfig.settings.mode === 'development'
     })
   ],
 

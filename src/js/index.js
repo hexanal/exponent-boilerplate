@@ -7,7 +7,6 @@ import Exponent from 'core/Exponent';
 // middlewares: kind of like plugins
 // they "augment" the props that are passed to components
 import Messaging from 'middlewares/Messaging';
-import LoggerMiddleware from 'middlewares/LoggerMiddleware';
 
 // components: like plugins, but targetting specific DOM nodes
 import counter from 'components/counter/counter';
@@ -17,7 +16,7 @@ import scroll from 'components/scroll/scroll';
 /* that's one way to do it: */
 Exponent
   // The 'use' method expects an array of middlewares (or just one, eh)
-  .use([ Messaging, LoggerMiddleware ])
+  .use([ Messaging ])
 
   /**
    * The 'register' method expects an object where the key is the component id

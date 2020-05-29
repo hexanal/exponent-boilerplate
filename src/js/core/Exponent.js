@@ -1,15 +1,15 @@
-import SettingsManager from 'core/SettingsManager';
-import { log, warn } from 'core/Logger';
+import settings from 'settings';
 
-const SETTINGS = SettingsManager.all;
-
-/**
- * Entry point!
- * todo: make a class?!
- */
 const Exponent = function() {
-  // the mounting element (usually "document", but whatever)
-  this.root = null;
+
+  // 'overrideable' user settings
+  this.settings = {
+    ...settings,
+    mode: 'development',
+    componentSelector: 'component',
+    uiSelector: 'ui',
+    controlSelector: 'control',
+  };
 
   // all the registered components
   this.registry = {};
@@ -49,10 +49,6 @@ const Exponent = function() {
   /**
    * * Internal functions for the courageous few
    */
-  this.init = function(root) {
-    this.root = root;
-    this.mount(root);
-  }
 
   this.mount = function(element) {
     this.handleComponentMount(element);
@@ -70,18 +66,16 @@ const Exponent = function() {
   this.handleComponentMount = (element) => {
     if (!element.dataset) return;
 
-    const attr = element.dataset[SETTINGS.componentSelector];
+    const attr = element.dataset[this.settings.componentSelector];
     const componentIds = attr.split(',').map(str => str.trim() );
 
-    if (!componentIds.length) return warn(`Element is not calling any component: ${element}`);
+    if (!componentIds.length) return;
 
     element.dataset.status = 'loading';
 
     const instances = componentIds.map(id => {
-      log(`Preparing mount of component "${id}"`);
-
       const Component = this.registry[id];
-      if (!Component) return warn(`Could not find any component with the name "${id}"`);
+      if (!Component) return;
 
       return this.mountComponentOnElement(Component, id, element);
     });
@@ -145,7 +139,7 @@ const Exponent = function() {
   }
 
   this.findChildrenComponents = function(element) {
-    const componentDataSelector = this.getSelector(SETTINGS.componentSelector);
+    const componentDataSelector = this.getSelector(this.settings.componentSelector);
     const children = element.querySelectorAll(componentDataSelector);
 
     return children;
@@ -198,7 +192,7 @@ const Exponent = function() {
 
   this.getComponentUIElements = function(element, childrenComponents) {
     const ui = {};
-    const selector = this.getSelector(SETTINGS.uiSelector);
+    const selector = this.getSelector(this.settings.uiSelector);
     const children = this.findChildrenElements(selector, element, childrenComponents);
 
     children.forEach(el => ( ui[el.dataset.ui] = el ) );
@@ -208,7 +202,7 @@ const Exponent = function() {
 
   this.getComponentControlElements = function(element, childrenComponents) {
     const controls = {};
-    const selector = this.getSelector(SETTINGS.controlSelector);
+    const selector = this.getSelector(this.settings.controlSelector);
     const children = this.findChildrenElements(selector, element, childrenComponents);
 
     children.forEach(el => ( controls[el.dataset.control] = el ) );
@@ -226,6 +220,7 @@ const Exponent = function() {
  */
 const ExponentApp = new Exponent();
 
-if (SETTINGS.mode === 'development' && SETTINGS.debug.enabled) window.Exponent = ExponentApp;
+// devmode
+if (settings.mode === 'development') window.Exponent = ExponentApp;
 
 export default ExponentApp;

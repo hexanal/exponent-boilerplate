@@ -1,26 +1,25 @@
-import projectSettings from '../../exponent.config';
+module.exports = {
+  /* Project "mode" -> either 'production' or 'development' */
+  mode: 'development',
 
-export default {
-  ...projectSettings,
+  /**
+   * Your 'user settings'. You can override the defaults here;
+   */
 
-  // selector for Exponent's components
-  componentSelector: 'component', // [data-{value}] — e.g. <div data-component="yo"></div>
+  /* selector for Exponent's components */
+  // componentSelector: 'component', // [data-{value}] — e.g. <div data-component="yo"></div>
 
-  // selector for the components' interface elements
-  uiSelector: 'ui',
+  /* selector for the components' interface elements */
+  // uiSelector: 'ui',
 
-  // selector for components' user input elements
-  controlSelector: 'control',
+  /* selector for components' user input elements */
+  // controlSelector: 'control',
 
-  // project-specific settings to help you enable/disable features
+  /**
+   * and finally, you can put anything you want, this was always allowed!
+   * in this example: project-specific settings help with toggling features
+   */
   featureFlags: {
-    logger: true,
+    debug: true
   },
-
-  debug: {
-    enabled: true,
-    timestampLogs: true,
-    logLevel: 0, // 0: none, 1: some, 2: all of it!
-  },
-
 };
