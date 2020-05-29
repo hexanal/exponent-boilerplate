@@ -12,7 +12,7 @@ import LoggerMiddleware from 'middlewares/LoggerMiddleware';
 // components: like plugins, but targetting specific DOM nodes
 import counter from 'components/counter/counter';
 import example from 'components/example/example';
-import scroll from 'components/scroll';
+import scroll from 'components/scroll/scroll';
 
 /* that's one way to do it: */
 Exponent
