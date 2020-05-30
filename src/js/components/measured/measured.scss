@@ -3,6 +3,11 @@
   padding: 1rem;
   color: white;
   background-color: var(--color-flash);
+  transition: background-color 150ms ease-in-out;
+
+  &[data-in-viewport="true"] {
+    background-color: var(--color-midnight);
+  }
 
   h1 {
     margin: 0.5rem 0;
