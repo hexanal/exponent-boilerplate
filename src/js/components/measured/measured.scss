@@ -1,0 +1,30 @@
+.measured {
+  margin: 2rem 0;
+  padding: 1rem;
+  color: white;
+  background-color: var(--color-flash);
+
+  h1 {
+    margin: 0.5rem 0;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+.measured__code {
+  margin: 0;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--color-midnight);
+  background-color: white;
+}
+
+.measured__val {
+  font-weight: bold;
+}

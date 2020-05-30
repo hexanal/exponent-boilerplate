@@ -11,6 +11,7 @@ import Messaging from 'middlewares/Messaging';
 // components: like plugins, but targetting specific DOM nodes
 import counter from 'components/counter/counter';
 import example from 'components/example/example';
+import measured from 'components/measured/measured';
 import scroll from 'components/scroll/scroll';
 
 // load your styles, and webpack's gonna take care of ya
@@ -34,7 +35,7 @@ Exponent
    * Here we're just using the ES shorthand because the component function has
    * the same name.
    */
-  .register({ counter, example })
+  .register({ counter, example, measured })
 
   /**
    * Ok, this is just like importing the component and calling its function
