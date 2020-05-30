@@ -1,5 +1,5 @@
 // load the core "lib"
-import Exponent from 'core/Exponent';
+import Exponent from 'exponent-core';
 
 // load your project settings
 import settings from './settings';
