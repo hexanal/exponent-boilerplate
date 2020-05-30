@@ -1,0 +1,12 @@
+.collapse {
+  overflow: hidden;
+  position: relative;
+  transition: height 300ms ease-in-out;
+}
+
+.collapse__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}

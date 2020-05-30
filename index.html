@@ -101,10 +101,10 @@
 
       <div class="container-query__layout">
         <div class="container-query__truncate" data-ui="truncate1" data-component="truncate">
-          Lorem ispum dolor sit amet consectetur adipsicing elit!
+          Lorem truncate component 1 ispum dolor sit consectetur adipsicing elit!
         </div>
         <div class="container-query__truncate" data-ui="truncate2" data-component="truncate">
-          Lorem ispum dolor sit amet consectetur adipsicing elit!
+          Lorem truncate component 2 ispum dolor amet adipsicing elit sit!
         </div>
       </div>
 
@@ -114,6 +114,56 @@
       </div>
     </div>
 
+
+    <div class="expand-collapse">
+      <button
+        type="button"
+        class="expand-collapse__toggle"
+        data-component="toggler"
+        data-target="my-collapse"
+        data-toggled="true"
+      >
+        expand/collapse
+      </button>
+
+      <button
+        type="button"
+        class="expand-collapse__toggle"
+        data-component="toggler"
+        data-target="my-nested-collapse"
+        data-toggled="false"
+      >
+        ...the nested!
+      </button>
+
+      <div
+        class="collapse"
+        data-component="collapse"
+        data-component-id="my-collapse"
+        data-start-collapsed="false"
+      >
+        <div class="collapse__content" data-ui="content">
+          <div class="expand-collapse__content">
+            This collapsible box should adapt it height automatically/dynamically
+            whenever its contents change. Try the buttons ☝️
+
+            <div
+              class="collapse"
+              data-component="collapse"
+              data-component-id="my-nested-collapse"
+              data-start-collapsed="true"
+            >
+              <div class="collapse__content" data-ui="content">
+                <div class="expand-collapse__content">
+                  This is a nested collapsible box. It's cool because they all take
+                  care of resizing themselves.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- that concludes it then! -->
   </div>

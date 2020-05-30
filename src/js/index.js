@@ -12,11 +12,13 @@ import Messaging from 'middlewares/Messaging';
 import '../scss/styles.scss';
 
 // components: like plugins, but targetting specific DOM nodes
+import collapse from 'components/collapse/collapse';
 import containerQuery from 'components/container-query/container-query';
 import counter from 'components/counter/counter';
 import example from 'components/example/example';
 import measured from 'components/measured/measured';
 import scroll from 'components/scroll/scroll';
+import toggler from 'components/toggler/toggler';
 import truncate from 'components/truncate/truncate';
 
 /* that's one way to do it: */
@@ -38,10 +40,12 @@ Exponent
    * the same name.
    */
   .register({
+    collapse,
     'container-query': containerQuery,
     counter,
     example,
     measured,
+    toggler,
     truncate
   })
 

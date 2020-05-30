@@ -1,0 +1,35 @@
+@import 'scss/styles';
+
+.expand-collapse {
+  margin: 2rem 0;
+  padding: 1rem;
+  color: white;
+  background-color: var(--color-bright);
+}
+
+.expand-collapse__toggle {
+  @include no-user-select;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border: 2px solid currentColor;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 300ms cubic-bezier(.45,-0.15,.05,1.5);
+  outline: none;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--color-active);
+    }
+  }
+}
+
+.expand-collapse__content {
+  padding: 1rem;
+  color: var(--color-body);
+  background-color: white;
+  border: 2px solid currentColor;
+}
