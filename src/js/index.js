@@ -16,6 +16,7 @@ import collapse from 'components/collapse/collapse';
 import containerQuery from 'components/container-query/container-query';
 import counter from 'components/counter/counter';
 import example from 'components/example/example';
+import lazyImage from 'components/lazy-image/lazy-image';
 import measured from 'components/measured/measured';
 import scroll from 'components/scroll/scroll';
 import toggler from 'components/toggler/toggler';
@@ -44,6 +45,7 @@ Exponent
     'container-query': containerQuery,
     counter,
     example,
+    'lazy-image': lazyImage,
     measured,
     toggler,
     truncate
