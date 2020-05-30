@@ -8,14 +8,16 @@ import settings from './settings';
 // they "augment" the props that are passed to components
 import Messaging from 'middlewares/Messaging';
 
+// load your styles, and webpack's gonna take care of ya
+import '../scss/styles.scss';
+
 // components: like plugins, but targetting specific DOM nodes
+import containerQuery from 'components/container-query/container-query';
 import counter from 'components/counter/counter';
 import example from 'components/example/example';
 import measured from 'components/measured/measured';
 import scroll from 'components/scroll/scroll';
-
-// load your styles, and webpack's gonna take care of ya
-import '../scss/styles.scss';
+import truncate from 'components/truncate/truncate';
 
 /* that's one way to do it: */
 Exponent
@@ -35,7 +37,13 @@ Exponent
    * Here we're just using the ES shorthand because the component function has
    * the same name.
    */
-  .register({ counter, example, measured })
+  .register({
+    'container-query': containerQuery,
+    counter,
+    example,
+    measured,
+    truncate
+  })
 
   /**
    * Ok, this is just like importing the component and calling its function

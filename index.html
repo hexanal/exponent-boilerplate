@@ -62,7 +62,7 @@
             </div>
 
             <div class="this-counter-is-even-deeper counter__child">
-              <div class="counter" data-component="counter" data-counter-id="deep-nested-counter" data-counter-bg="bright">
+              <div class="counter" data-ui="sub-counter" data-component="counter" data-counter-id="deep-nested-counter" data-counter-bg="bright">
                 <div class="counter__controls">
                   <h2 data-ui="heading"></h2>
                   <h3 data-ui="id"></h3>
@@ -87,6 +87,31 @@
   height: <span class="measured__val" data-ui="height"></span>px;
 }
 </pre>
+    </div>
+
+
+    <div class="container-query" data-component="container-query">
+      <button
+        class="container-query__btn"
+        type="button"
+        data-control="embiggen"
+      >
+        Toggle the <i>squeezing</i>
+      </button>
+
+      <div class="container-query__layout">
+        <div class="container-query__truncate" data-ui="truncate1" data-component="truncate">
+          Lorem ispum dolor sit amet consectetur adipsicing elit!
+        </div>
+        <div class="container-query__truncate" data-ui="truncate2" data-component="truncate">
+          Lorem ispum dolor sit amet consectetur adipsicing elit!
+        </div>
+      </div>
+
+      <div class="container-query__caption">
+        <p>When <i>squeezed</i>, the second <b>truncate</b> component in the frame above will show its short version</p>
+        <p>This works using the <b>measure</b> tool which leverages <a href="https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver">ResizeObserver</a></p>
+      </div>
     </div>
 
 

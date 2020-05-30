@@ -1,5 +1,4 @@
 // hey! this is a Sass file!
-@use 'sass:color';
 @import 'font';
 
 :root {
@@ -19,16 +18,6 @@ body {
   background-position: 0 0;
   background-size: cover;
   background-attachment: fixed;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: var(--color-body);
-
-  * {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-  }
 }
 
 * {
@@ -43,7 +32,7 @@ body {
   font-size: 150vw;
   line-height: 0;
   color: white;
-  text-shadow: 0.5rem 0.5rem 0 var(--color-bright)
+  text-shadow: 0.5rem 0.5rem 0 var(--color-bright);
 }
 
 .🔴{
@@ -67,4 +56,17 @@ body {
 }
 [data-status=loaded] {
   opacity: 1;
+}
+
+@mixin no-user-select {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: var(--color-body);
+
+  * {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
 }
