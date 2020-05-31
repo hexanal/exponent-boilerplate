@@ -89,19 +89,40 @@
 </pre>
     </div>
 
+    <div class="zoom-image" data-component="zoom-image">
+      <div class="zoom-image__ui">
+        <button class="zoom-image__close" type="button" data-control="close">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="zoom-image__x"
+            viewBox="0 0 100 100"
+          >
+            <line x1="5" x2="95" y1="95" y2="5" vector-effect="non-scaling-stroke"/>
+            <line x1="5" x2="95" y1="5" y2="95" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </button>
+      </div>
 
-    <div
-      class="lazy-image"
-      data-component="lazy-image"
-      data-source="/dist/assets/images/bg.png"
-      data-ratio="1"
-    >
-      <svg class="lazy-image__loader" data-ui="spinner" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30"></circle></svg>
-      <img
-        class="lazy-image__img"
-        data-ui="img"
-        alt="This shit laaaazy"
-      >
+      <a
+        class="zoom-image__img"
+        data-ui="image"
+        href="#@zoom/my-image"
+       >
+        <div
+          class="lazy-image"
+          data-ui="img"
+          data-component="lazy-image"
+          data-source="/dist/assets/images/bg.png"
+          data-ratio="1"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="lazy-image__loader" data-ui="spinner" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30"></circle></svg>
+          <img
+            class="lazy-image__img"
+            data-ui="img"
+            alt="This shit laaaazy"
+          >
+        </div>
+      </a>
     </div>
 
 

@@ -21,6 +21,7 @@ import measured from 'components/measured/measured';
 import scroll from 'components/scroll/scroll';
 import toggler from 'components/toggler/toggler';
 import truncate from 'components/truncate/truncate';
+import zoomImage from 'components/zoom-image/zoom-image';
 
 /* that's one way to do it: */
 Exponent
@@ -48,7 +49,8 @@ Exponent
     'lazy-image': lazyImage,
     measured,
     toggler,
-    truncate
+    truncate,
+    'zoom-image': zoomImage
   })
 
   /**
