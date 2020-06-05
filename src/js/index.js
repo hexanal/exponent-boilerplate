@@ -19,6 +19,8 @@ import example from 'components/example/example';
 import lazyImage from 'components/lazy-image/lazy-image';
 import measured from 'components/measured/measured';
 import scroll from 'components/scroll/scroll';
+import shaper from 'components/shaper/shaper';
+import shaperCell from 'components/shaper/shaper-cell';
 import toggler from 'components/toggler/toggler';
 import truncate from 'components/truncate/truncate';
 import zoomImage from 'components/zoom-image/zoom-image';
@@ -50,6 +52,8 @@ Exponent
     measured,
     toggler,
     truncate,
+    shaper,
+    'shaper-cell': shaperCell,
     'zoom-image': zoomImage
   })
 

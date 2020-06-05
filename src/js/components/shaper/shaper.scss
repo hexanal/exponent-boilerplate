@@ -1,0 +1,23 @@
+.shaper {
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--color-flash);
+}
+
+.shaper__settings {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.shaper__grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
