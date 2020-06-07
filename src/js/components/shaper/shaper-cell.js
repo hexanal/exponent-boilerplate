@@ -2,17 +2,34 @@ import './shaper-cell.scss';
 
 export default ({element}) => {
   const state = {
-    locked: false,
+    lock: false,
+    drawn: false,
     type: 'round'
   };
-  const CORNER_THRESHOLD = 0.4;
 
-  element.addEventListener('click', e => {
-    state.locked = !state.locked;
-    element.dataset.locked = state.locked;
+  const CORNER_THRESHOLD = 0.35;
+
+  element.addEventListener('mousedown', () => {
+    state.drawn = !state.drawn;
+    element.dataset.drawn = state.drawn;
   });
+  // element.addEventListener('mouseup', () => {
+  //   state.drawn = state.lock;
+  //   state.lock = false;
+  // });
+  // element.addEventListener('mouseup', () => {
+  //   state.drawn = state.lock;
+  //   state.lock = false;
+  // }):
+  element.addEventListener('mouseenter', e => {
+    if (e.buttons === 0 ) return;
+    state.drawn = !state.drawn;
+    element.dataset.drawn = state.drawn;
+  });
+  // element.addEventListener('mouseenter',
   element.addEventListener('mousemove', e => {
-    if ( state.locked ) return;
+    // if (e.buttons === 0 ) return;
+    if ( state.drawn ) return;
 
     const { top, left, width, height } = element.getBoundingClientRect();
     const ratioY = (e.clientY - top) / height;

@@ -3,19 +3,20 @@ import stater from 'tools/stater';
 import shaperCell from './shaper-cell';
 import './shaper.scss';
 
+export const shaperState = stater({
+  cells: [],
+  rows: 10,
+  cols: 10
+});
+
 export default ({element, ui, control, children}) => {
   const { grid, template } = ui;
-  const state = stater({
-    cells: [],
-    rows: 10,
-    cols: 10
-  });
 
-  state.rows.changed(build);
-  state.cols.changed(build);
+  shaperState.rows.changed(build);
+  shaperState.cols.changed(build);
 
   function build() {
-    const { rows, cols, cells } = state.get();
+    const { rows, cols, cells } = shaperState.get();
 
     grid.innerHTML = '';
 
@@ -37,7 +38,7 @@ export default ({element, ui, control, children}) => {
           })
         });
 
-        state.cells.set(cells);
+        shaperState.cells.set(cells);
       }
     }
   }

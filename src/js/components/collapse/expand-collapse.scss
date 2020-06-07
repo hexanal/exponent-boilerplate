@@ -32,4 +32,13 @@
   color: var(--color-body);
   background-color: white;
   border: 2px solid currentColor;
+
+  a {
+    color: var(--color-body);
+
+    &:focus,
+    &:hover {
+      color: var(--color-subtle);
+    }
+  }
 }
