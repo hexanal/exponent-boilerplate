@@ -20,6 +20,7 @@
 
 .shaper__grid {
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
   -webkit-user-select: none;
