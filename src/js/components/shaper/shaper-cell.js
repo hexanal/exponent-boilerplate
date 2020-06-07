@@ -1,5 +1,7 @@
 import './shaper-cell.scss';
 
+import { shaperState } from './shaper';
+
 export default ({element}) => {
   const state = {
     lock: false,
@@ -13,23 +15,16 @@ export default ({element}) => {
     state.drawn = !state.drawn;
     element.dataset.drawn = state.drawn;
   });
-  // element.addEventListener('mouseup', () => {
-  //   state.drawn = state.lock;
-  //   state.lock = false;
-  // });
-  // element.addEventListener('mouseup', () => {
-  //   state.drawn = state.lock;
-  //   state.lock = false;
-  // }):
   element.addEventListener('mouseenter', e => {
-    if (e.buttons === 0 ) return;
-    state.drawn = !state.drawn;
-    element.dataset.drawn = state.drawn;
+    console.log( shaperState.get('drawing') );
+
+    if ( shaperState.get('drawing') ) {
+      state.drawn = !state.drawn;
+      element.dataset.drawn = state.drawn;
+    }
   });
-  // element.addEventListener('mouseenter',
   element.addEventListener('mousemove', e => {
-    // if (e.buttons === 0 ) return;
-    if ( state.drawn ) return;
+    if ( state.drawn && !shaperState.get('drawing') ) return;
 
     const { top, left, width, height } = element.getBoundingClientRect();
     const ratioY = (e.clientY - top) / height;

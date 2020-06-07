@@ -6,14 +6,23 @@ import './shaper.scss';
 export const shaperState = stater({
   cells: [],
   rows: 10,
-  cols: 10
+  cols: 10,
+  drawing: false
 });
 
-export default ({element, ui, control, children}) => {
+export default ({element, ui}) => {
   const { grid, template } = ui;
 
   shaperState.rows.changed(build);
   shaperState.cols.changed(build);
+
+  element.addEventListener('mousedown', () => shaperState.set('drawing', true) );
+  element.addEventListener('mouseup', () => shaperState.set('drawing', false) );
+  element.addEventListener('mousemove', e => {
+    if (e.buttons === 0) {
+      shaperState.set('drawing', false);
+    }
+  });
 
   function build() {
     const { rows, cols, cells } = shaperState.get();
