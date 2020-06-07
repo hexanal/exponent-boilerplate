@@ -1,5 +1,6 @@
 .shaper-cell {
-  --cell-size: 6rem;
+  --cell-size: 10vw;
+  --hot-corner-size: 25%;
   --ease: cubic-bezier(.45,-0.15,.05,1.5);
   overflow: hidden;
   position: relative;
@@ -11,7 +12,9 @@
   outline: none;
   background-color: transparent;
   cursor: crosshair;
+  -webkit-user-select: none;
   user-select: none;
+  transition: opacity 160ms cubic-bezier(.5,.2,0,1);
 
   &:after {
     content: '';
@@ -21,6 +24,9 @@
     width: 100%;
     height: 100%;
     background-color: var(--color-midnight);
+    transition:
+      border-radius 160ms cubic-bezier(.5,.2,0,1),
+      background-color 160ms cubic-bezier(.5,.2,0,1);
     cursor: crosshair;
   }
 
@@ -51,14 +57,17 @@
   }
 
   &:hover {
+    opacity: 0.1;
     &:after {
-      background-color: rgba(255,255,255,0.1);
+      background-color: white;
     }
+
     &[data-drawn="true"] {
-      background-color: var(--color-midnight);
+      opacity: 0.6;
+      // background-color: var(--color-midnight);
 
       &:after {
-        background-color: var(--color-bright);
+        background-color: white;
       }
     }
   }
@@ -70,11 +79,10 @@
 }
 
 .shaper-cell__corner {
-  --size: 40%;
   position: absolute;
   z-index: 4;
-  width: var(--size);
-  height: var(--size);
+  width: var(--hot-corner-size);
+  height: var(--hot-corner-size);
 
   &.nw { top: 0; left: 0; &:hover { cursor: nw-resize; } }
   &.ne { top: 0; right: 0; &:hover { cursor: ne-resize; } }

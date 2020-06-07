@@ -8,6 +8,8 @@
   justify-content: center;
   position: relative;
   color: var(--color-midnight);
+  -webkit-user-select: none;
+  user-select: none
 }
 
 .shaper__settings {
@@ -20,4 +22,6 @@
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
+  -webkit-user-select: none;
+  user-select: none
 }

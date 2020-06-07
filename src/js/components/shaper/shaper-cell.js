@@ -9,22 +9,25 @@ export default ({element}) => {
     type: 'round'
   };
 
-  const CORNER_THRESHOLD = 0.35;
+  const hotCornerSize = getComputedStyle(element).getPropertyValue('--hot-corner-size');
+  const CORNER_THRESHOLD = parseInt( hotCornerSize.replace('%', ''), 10 ) / 100;
 
   element.addEventListener('mousedown', () => {
+    shaperState.set('mode', (state.drawn ? 'erase' : 'draw') );
+
     state.drawn = !state.drawn;
     element.dataset.drawn = state.drawn;
   });
   element.addEventListener('mouseenter', e => {
-    console.log( shaperState.get('drawing') );
+    const mode = shaperState.get('mode');
 
-    if ( shaperState.get('drawing') ) {
-      state.drawn = !state.drawn;
-      element.dataset.drawn = state.drawn;
-    }
+    if (mode === 'off') return;
+
+    state.drawn = mode === 'draw'; // the other possible mode is 'erase', which set the cell to empty :)
+    element.dataset.drawn = state.drawn;
   });
   element.addEventListener('mousemove', e => {
-    if ( state.drawn && !shaperState.get('drawing') ) return;
+    if ( state.drawn && shaperState.get('mode') === 'off' ) return; // don't alter this cell if it's drawn and we are not currently drawing or erasing
 
     const { top, left, width, height } = element.getBoundingClientRect();
     const ratioY = (e.clientY - top) / height;
