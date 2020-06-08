@@ -7,7 +7,7 @@ export const shaperState = stater({
   cells: [],
   rows: 10,
   cols: 10,
-  mode: 'off' // todo
+  drawing: false,
 });
 
 export default ({element, ui}) => {
@@ -16,12 +16,10 @@ export default ({element, ui}) => {
   shaperState.rows.changed(build);
   shaperState.cols.changed(build);
 
-  element.addEventListener('mouseup', () => shaperState.set('mode', 'off') );
-  element.addEventListener('mousemove', e => {
-    if (e.buttons === 0) {
-      shaperState.set('mode', 'off');
-    }
-  });
+  element.addEventListener('mousemove', e => shaperState.set('drawing', e.buttons > 0) );
+  // element.addEventListener('touchstart', e => shaperState.set('drawing', true) );
+  element.addEventListener('touchmove', e => shaperState.set('drawing', e.touches.length > 0) );
+  // element.addEventListener('touchend', e => shaperState.set('drawing', false) );
 
   function build() {
     const { rows, cols, cells } = shaperState.get();

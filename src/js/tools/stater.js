@@ -18,6 +18,7 @@ export default state => {
     .map(key => {
       staterized[key] = {
         _onchanges: [],
+        toggle: (key) => staterized.set(key, !staterized.get(key)),
         changed: fn => staterized[key]._onchanges.push(fn),
         get: () => store[key],
         set: val => staterized.set(key, val),
