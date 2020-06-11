@@ -8,18 +8,33 @@
   justify-content: space-between;
 }
 
+@mixin create-col($index: 1, $span: 12) {
+  > div {
+    width: 100%;
+    margin-top: var(--gutters);
+  }
+  > div:nth-child(#{$index}) {
+    width: calc(var(--col-width) * #{$span} + ( #{$span - 1} * var(--gutters) ) );
+    margin-top: 0;
+  }
+}
+@mixin create-cols($cols: (6, 6) ) { // provide a default for context -> this creates two columns each spanning 6 columns
+  @for $i from 1 through length($cols) {
+    $span: nth($cols, $i);
+    @include create-col($i, $span);
+  }
+}
+
 @mixin two-cols($one, $two, $breakpoint: false) {
   @if $breakpoint {
     @media (min-width: $breakpoint) {
       @include flex-between;
-      > div:nth-child(1) { width: calc(var(--col-width) * #{$one} + ( #{$one - 1} * var(--gutters) ) ); }
-      > div:nth-child(2) { width: calc(var(--col-width) * #{$two} + ( #{$two - 1} * var(--gutters) ) ); }
+      @include create-cols(($one, $two));
     }
   }
   @else {
     @include flex-between;
-    > div:nth-child(1) { width: calc(var(--col-width) * #{$one} + ( #{$one - 1} * var(--gutters) ) ); }
-    > div:nth-child(2) { width: calc(var(--col-width) * #{$two} + ( #{$two - 1} * var(--gutters) ) ); }
+    @include create-cols(($one, $two));
   }
 }
 
@@ -27,19 +42,14 @@
   @if $breakpoint {
     @media (min-width: $breakpoint) {
       @include flex-between;
-      > div:nth-child(1) { width: calc(var(--col-width) * #{$one} + ( #{$one - 1} * var(--gutters) ) ); }
-      > div:nth-child(2) { width: calc(var(--col-width) * #{$two} + ( #{$two - 1} * var(--gutters) ) ); }
-      > div:nth-child(3) { width: calc(var(--col-width) * #{$three} + ( #{$three - 1} * var(--gutters) ) ); }
+      @include create-cols(($one, $two, $three));
     }
   }
   @else {
     @include flex-between;
-    > div:nth-child(1) { width: calc(var(--col-width) * #{$one} + ( #{$one - 1} * var(--gutters) ) ); }
-    > div:nth-child(2) { width: calc(var(--col-width) * #{$two} + ( #{$two - 1} * var(--gutters) ) ); }
-    > div:nth-child(3) { width: calc(var(--col-width) * #{$three} + ( #{$three - 1} * var(--gutters) ) ); }
+    @include create-cols(($one, $two, $three));
   }
 }
-
 
 @mixin makeGridColsForBreakpoint($string: false, $breakpoint: false) {
   @if $breakpoint {

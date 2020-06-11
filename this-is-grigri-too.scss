@@ -1,0 +1,40 @@
+@import 'scss/grigri';
+
+.this-is-grigri-too {
+  // override colors for debugging purposes
+  --helper-cols-color: #dddddd;
+  --helper-lines-color: black;
+  --helper-opacity: 0.2;
+  margin: 0;
+  background-color: white;
+}
+
+.serious-grid {
+  flex-wrap: wrap;
+  @include two-cols(6, 6);
+
+  @media (min-width: $mq-md) {
+    @include three-cols(3, 3, 6);
+  }
+}
+
+.content {
+  * {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    + * {
+      margin-top: 1.5rem;
+    }
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 1.25;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+}

@@ -9,7 +9,7 @@ $mq-xxl: 1920px;
 
 :root {
   --margins: 1rem;
-  --gutters: 1rem;
+  --gutters: 0.25rem;
   --spacing: 3.5rem;
   --max-width: 1200px;
   --narrow-width: 800px;
@@ -18,12 +18,13 @@ $mq-xxl: 1920px;
   --col-width: calc( (100% - (var(--gutters) * 11) ) / 12);
   --helper-cols-color: white;
   --helper-lines-color: magenta;
-  --helper-lines-mode: scroll;
+  --helper-opacity: 0.1;
 }
 
-@media (min-width: $mq-md) {
+@media (min-width: $mq-sm) {
   :root {
     --margins: 2rem;
+    --gutters: 1rem;
   }
 }
 @media (min-width: $mq-xl) {
@@ -48,3 +49,63 @@ $mq-xxl: 1920px;
 @include makeGridMarginsForBreakpoint(lg, $mq-lg);
 @include makeGridMarginsForBreakpoint(xl, $mq-xl);
 @include makeGridMarginsForBreakpoint(xxl, $mq-xxl);
+
+.grid {
+  display: grid;
+  grid-gap: var(--gutters);
+}
+
+.no-gutters {
+  grid-gap: 0;
+}
+
+.full-height {
+  height: 100%; // TODO not sure about this one
+}
+
+.container-full {
+  width: 100%;
+}
+
+.container {
+  max-width: var(--max-width);
+  padding-left: var(--margins);
+  padding-right: var(--margins);
+
+  &.flush {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.container-wide {
+  max-width: var(--wide-width);
+  padding-left: var(--margins);
+  padding-right: var(--margins);
+
+  &.flush {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.container-narrow {
+  max-width: var(--narrow-width);
+  padding-left: var(--margins);
+  padding-right: var(--margins);
+
+  &.flush {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.spaced {
+  margin-top: var(--spacing);
+  margin-bottom: var(--spacing);
+}
