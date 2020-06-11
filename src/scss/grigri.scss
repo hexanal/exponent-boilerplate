@@ -1,0 +1,80 @@
+/**
+ * ——————
+ * grigri
+ * ——————
+ */
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin two-cols($one, $two, $breakpoint: false) {
+  @if $breakpoint {
+    @media (min-width: $breakpoint) {
+      @include flex-between;
+      > div:nth-child(1) { width: calc(var(--col-width) * #{$one} + ( #{$one - 1} * var(--gutters) ) ); }
+      > div:nth-child(2) { width: calc(var(--col-width) * #{$two} + ( #{$two - 1} * var(--gutters) ) ); }
+    }
+  }
+  @else {
+    @include flex-between;
+    > div:nth-child(1) { width: calc(var(--col-width) * #{$one} + ( #{$one - 1} * var(--gutters) ) ); }
+    > div:nth-child(2) { width: calc(var(--col-width) * #{$two} + ( #{$two - 1} * var(--gutters) ) ); }
+  }
+}
+
+@mixin three-cols($one, $two, $three, $breakpoint: false) {
+  @if $breakpoint {
+    @media (min-width: $breakpoint) {
+      @include flex-between;
+      > div:nth-child(1) { width: calc(var(--col-width) * #{$one} + ( #{$one - 1} * var(--gutters) ) ); }
+      > div:nth-child(2) { width: calc(var(--col-width) * #{$two} + ( #{$two - 1} * var(--gutters) ) ); }
+      > div:nth-child(3) { width: calc(var(--col-width) * #{$three} + ( #{$three - 1} * var(--gutters) ) ); }
+    }
+  }
+  @else {
+    @include flex-between;
+    > div:nth-child(1) { width: calc(var(--col-width) * #{$one} + ( #{$one - 1} * var(--gutters) ) ); }
+    > div:nth-child(2) { width: calc(var(--col-width) * #{$two} + ( #{$two - 1} * var(--gutters) ) ); }
+    > div:nth-child(3) { width: calc(var(--col-width) * #{$three} + ( #{$three - 1} * var(--gutters) ) ); }
+  }
+}
+
+
+@mixin makeGridColsForBreakpoint($string: false, $breakpoint: false) {
+  @if $breakpoint {
+    @for $i from 2 through 12 {
+      .col-#{$string}-#{$i} {
+        @media (min-width: $breakpoint) {
+          grid-template-columns: repeat($i, 1fr);
+        }
+      }
+    }
+  }
+  @else {
+    @for $i from 2 through 12 {
+      .col-#{$i} { grid-template-columns: repeat($i, 1fr); }
+    }
+  }
+}
+
+@mixin makeGridMarginsForBreakpoint($string: false, $breakpoint: false) {
+  @if $breakpoint {
+    @for $i from 2 through 12 {
+      .margin-#{$string}-#{$i} {
+        @media (min-width: $breakpoint) {
+          padding-left: calc(var(--margins) * #{$i} + var(--gutters) * #{$i - 1});
+          padding-right: calc(var(--margins) * #{$i} + var(--gutters) * #{$i - 1});
+        }
+      }
+    }
+  }
+  @else {
+    @for $i from 2 through 12 {
+      .margin-#{$i} {
+        padding-left: calc(var(--margins) * #{$i} + var(--gutters) * #{$i - 1});
+        padding-right: calc(var(--margins) * #{$i} + var(--gutters) * #{$i - 1});
+      }
+    }
+  }
+}

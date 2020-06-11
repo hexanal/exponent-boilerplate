@@ -1,0 +1,144 @@
+@import 'scss/grigri';
+
+.this-is-grigri {
+  margin: 0;
+  background-color: var(--color-flash);
+}
+
+.grid-lines {
+  pointer-events: none;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+
+  > .container {
+    height: 100%;
+  }
+}
+
+.line {
+  background-color: white;
+  height: 100%;
+}
+
+.vertical-rhythm {
+  position: relative;
+
+  &:after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    z-index: 11;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image: linear-gradient(to bottom, var(--helper-lines-color) 0%, var(--helper-lines-color) 50%, transparent 50%, transparent 100%);
+    background-size: 2rem 2rem;
+    background-attachment: var(--helper-lines-mode);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-gap: var(--gutters);
+}
+
+.no-gutters {
+  grid-gap: 0;
+}
+
+.full-height {
+  height: 100%; // TODO not sure about this one
+}
+
+.container-full {
+  width: 100%;
+}
+
+.container {
+  max-width: var(--max-width);
+  padding-left: var(--margins);
+  padding-right: var(--margins);
+
+  &.flush {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.container-wide {
+  max-width: var(--wide-width);
+  padding-left: var(--margins);
+  padding-right: var(--margins);
+
+  &.flush {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.container-narrow {
+  max-width: var(--narrow-width);
+  padding-left: var(--margins);
+  padding-right: var(--margins);
+
+  &.flush {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.spaced {
+  margin-top: var(--spacing);
+  margin-bottom: var(--spacing);
+}
+
+
+/**
+ * TEST ZONE
+ * —————————
+ */
+
+.hello-world-grid {
+  @include three-cols(4, 4, 4);
+  @include three-cols(3, 6, 3, $mq-md); // shorthand :)
+}
+
+.some-grid {
+  @include two-cols(6, 6);
+
+  @media (min-width: $mq-sm) {
+    @include two-cols(4, 8);
+  }
+
+  @media (min-width: $mq-lg) {
+    @include two-cols(3, 9);
+  }
+}
+
+.gr-item {
+  background-image: url(~assets/images/box.svg);
+}
+
+.i {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-hotpink { background-color: hotpink; }
+.bg-orange { background-color: orange; }
+.bg-yellow { background-color: yellow; }
+.bg-blueviolet { background-color: blueviolet; }
+.bg-cyan { background-color: cyan; }

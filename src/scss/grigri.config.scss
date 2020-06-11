@@ -1,0 +1,50 @@
+@import 'scss/grigri';
+
+$mq-xs: 500px;
+$mq-sm: 700px;
+$mq-md: 1000px;
+$mq-lg: 1200px;
+$mq-xl: 1440px;
+$mq-xxl: 1920px;
+
+:root {
+  --margins: 1rem;
+  --gutters: 1rem;
+  --spacing: 3.5rem;
+  --max-width: 1200px;
+  --narrow-width: 800px;
+  --wide-width: 1680px;
+  --multiplier: 3;
+  --col-width: calc( (100% - (var(--gutters) * 11) ) / 12);
+  --helper-cols-color: white;
+  --helper-lines-color: magenta;
+  --helper-lines-mode: scroll;
+}
+
+@media (min-width: $mq-md) {
+  :root {
+    --margins: 2rem;
+  }
+}
+@media (min-width: $mq-xl) {
+  :root {
+    --margins: 4rem;
+    --gutters: 1.5rem;
+  }
+}
+
+@include makeGridColsForBreakpoint(none);
+@include makeGridColsForBreakpoint(xs, $mq-xs);
+@include makeGridColsForBreakpoint(sm, $mq-sm);
+@include makeGridColsForBreakpoint(md, $mq-md);
+@include makeGridColsForBreakpoint(lg, $mq-lg);
+@include makeGridColsForBreakpoint(xl, $mq-xl);
+@include makeGridColsForBreakpoint(xxl, $mq-xxl);
+
+@include makeGridMarginsForBreakpoint(none);
+@include makeGridMarginsForBreakpoint(xs, $mq-xs);
+@include makeGridMarginsForBreakpoint(sm, $mq-sm);
+@include makeGridMarginsForBreakpoint(md, $mq-md);
+@include makeGridMarginsForBreakpoint(lg, $mq-lg);
+@include makeGridMarginsForBreakpoint(xl, $mq-xl);
+@include makeGridMarginsForBreakpoint(xxl, $mq-xxl);
