@@ -12,10 +12,12 @@ import Messaging from 'middlewares/Messaging';
 import '../scss/styles.scss';
 
 // components: like plugins, but targetting specific DOM nodes
+import boxMeasure from 'components/box-measure/box-measure';
 import collapse from 'components/collapse/collapse';
 import containerQuery from 'components/container-query/container-query';
 import counter from 'components/counter/counter';
 import example from 'components/example/example';
+import grigriDevtool from 'components/grigri/grigri-devtool/grigri-devtool';
 import lazyImage from 'components/lazy-image/lazy-image';
 import measured from 'components/measured/measured';
 import scroll from 'components/scroll/scroll';
@@ -44,10 +46,12 @@ Exponent
    * the same name.
    */
   .register({
+    'box-measure': boxMeasure,
     collapse,
     'container-query': containerQuery,
     counter,
     example,
+    'grigri-devtool': grigriDevtool,
     'lazy-image': lazyImage,
     measured,
     toggler,

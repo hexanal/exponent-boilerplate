@@ -1,0 +1,70 @@
+.grigri-devtool {
+  --ease: cubic-bezier(0,1,.6,1);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 1.5rem;
+  padding-bottom: 2.5rem;
+  border-top: 2px solid hotpink;
+  background-color: white;
+  transform: translateY(100%) translateY(-2px);
+  transition: transform 500ms var(--ease);
+
+  &[data-active="true"] {
+    transform: translateY(0);
+  }
+}
+
+.grigri-devtool__trigger {
+  overflow: hidden;
+  position: absolute;
+  z-index: 2;
+  left: 1.5rem;
+  bottom: 100%;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+  border: 2px solid hotpink;
+  border-radius: 0.5rem 0.5rem 0 0;
+  border-bottom: 0;
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+
+  span {
+    margin-left: -0.28rem; // ?!?
+  }
+
+  &:hover {
+    background-color: hotpink;
+  }
+}
+
+.grigri-devtool__toolbox {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 15rem);
+  grid-gap: 4rem;
+}
+
+.grigri-devtool__tool {
+  label {
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-subtle);
+    padding: 0.5rem 0;
+  }
+
+  i {
+    font-weight: 500;
+    font-style: normal;
+    color: var(--color-bright);
+    border-bottom: 2px solid currentColor;
+  }
+}
+
+.grigri-devtool__range {
+  display: block;
+  width: 100%;
+}

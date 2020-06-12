@@ -11,7 +11,7 @@
 
 <body class="this-is-grigri-too">
 
-  <div class="gg-d-cols">
+  <div class="ggh-cols">
     <div class="centered container grid col-12">
       <div class="line"></div>
       <div class="line"></div>
@@ -25,16 +25,20 @@
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>
+
+      <div class="ggh-margin ggh-margin-left"></div>
+      <div class="ggh-margin ggh-margin-right"></div>
     </div>
   </div>
 
   <div class="spaced container centered">
-    <div class="serious-grid">
-      <div class="bg-yellow">
+
+    <div class="serious-grid ggh-spacing">
+      <div class="bg-yellow" data-component="box-measure">
         <img class="i" src="/dist/assets/images/box.svg">
       </div>
 
-      <div class="bg-yellow">
+      <div class="bg-yellow" data-component="box-measure">
         <img class="i" src="/dist/assets/images/box.svg">
       </div>
 
@@ -47,6 +51,84 @@
           Officiis ipsa molestiae sed fuga enim. Dolorem maxime quis officia eum similique fuga et. Quos illum atque nemo harum. Qui eligendi et laudantium expedita aut aspernatur dicta.
         </p>
       </div>
+    </div>
+
+  </div>
+
+  <div class="grigri-devtool" data-component="grigri-devtool">
+    <button class="grigri-devtool__trigger" data-control="trigger" title="Open grigri's toolbox">
+      <span>✳️</span>
+    </button>
+
+    <div class="grigri-devtool__toolbox">
+
+      <div class="grigri-devtool__tool" data-ui="tool">
+        <label for="gutters">
+          Gutters
+          <i data-ui="gutters-value"></i>
+        </label>
+        <input
+          id="gutters"
+          class="grigri-devtool__range"
+          type="range"
+          min="0.5"
+          max="4"
+          step="0.05"
+          data-control="gutters"
+        >
+      </div>
+
+      <div class="grigri-devtool__tool" data-ui="tool">
+        <label id="margins">
+          Margins
+          <i data-ui="margins-value"></i>
+        </label>
+
+        <input
+          id="margins"
+          class="grigri-devtool__range"
+          type="range"
+          min="0.5"
+          max="10"
+          step="0.5"
+          data-control="margins"
+        >
+      </div>
+
+      <div class="grigri-devtool__tool" data-ui="tool">
+        <label for="spacing">
+          Spacing
+          <i data-ui="spacing-value"></i>
+        </label>
+
+        <input
+          id="spacing"
+          class="grigri-devtool__range"
+          type="range"
+          min="0"
+          max="5"
+          step="0.05"
+          data-control="spacing"
+        >
+      </div>
+
+      <div class="grigri-devtool__tool" data-ui="tool">
+        <label for="max-width">
+          Container Max Width
+          <i data-ui="max-width-value"></i>
+        </label>
+
+        <input
+          id="max-width"
+          class="grigri-devtool__range"
+          type="range"
+          min="480"
+          max="2048"
+          step="8"
+          data-control="max-width"
+        >
+      </div>
+
     </div>
   </div>
 

@@ -1,0 +1,21 @@
+.box-measure {
+  position: relative;
+}
+
+.box-measure-label,
+.box-measure-w,
+.box-measure-h {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.25rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  color: orange;
+  background-color: white;
+  border: 2px solid currentColor;
+}
+// .box-measure-w {
+//   ...
+// }
+// .box-measure-h {
