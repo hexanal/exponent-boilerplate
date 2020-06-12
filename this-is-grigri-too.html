@@ -62,73 +62,136 @@
 
     <div class="grigri-devtool__toolbox">
 
-      <div class="grigri-devtool__tool" data-ui="tool">
-        <label for="gutters">
-          Gutters
-          <i data-ui="gutters-value"></i>
-        </label>
-        <input
-          id="gutters"
-          class="grigri-devtool__range"
-          type="range"
-          min="0.5"
-          max="4"
-          step="0.05"
-          data-control="gutters"
-        >
-      </div>
+      <section class="grigri-devtool__tool-section">
+        <div class="grigri-devtool__tool" data-ui="tool">
+          <label>
+            Show vertical columns
+            <input type="checkbox" data-control="toggle-columns">
+          </label>
+        </div>
+        <div class="grigri-devtool__tool" data-ui="tool">
+          <label>
+            Show margins
+            <input type="checkbox" data-control="toggle-margins">
+          </label>
+        </div>
+        <div class="grigri-devtool__tool" data-ui="tool">
+          <label>
+            Show spacing
+            <input type="checkbox" data-control="toggle-spacing">
+          </label>
+        </div>
+      </section>
 
-      <div class="grigri-devtool__tool" data-ui="tool">
-        <label id="margins">
-          Margins
-          <i data-ui="margins-value"></i>
-        </label>
+      <section class="grigri-devtool__tool-section">
+        <div class="grigri-devtool__tool" data-ui="tool">
+          <div class="grigri-devtool__label">
+            <label for="gutters">
+              Gutters
+            </label>
 
-        <input
-          id="margins"
-          class="grigri-devtool__range"
-          type="range"
-          min="0.5"
-          max="10"
-          step="0.5"
-          data-control="margins"
-        >
-      </div>
+            <div class="grigri-devtool__manual">
+              <input
+                class="grigri-devtool__input"
+                type="text"
+                data-control="gutters-value"
+              >
+              rem
+            </div>
+          </div>
 
-      <div class="grigri-devtool__tool" data-ui="tool">
-        <label for="spacing">
-          Spacing
-          <i data-ui="spacing-value"></i>
-        </label>
+          <input
+            id="gutters"
+            class="grigri-devtool__range"
+            type="range"
+            min="0.5"
+            max="4"
+            step="0.05"
+            data-control="gutters"
+          >
+        </div>
 
-        <input
-          id="spacing"
-          class="grigri-devtool__range"
-          type="range"
-          min="0"
-          max="5"
-          step="0.05"
-          data-control="spacing"
-        >
-      </div>
+        <div class="grigri-devtool__tool" data-ui="tool">
+          <div class="grigri-devtool__label">
+            <label for="margins">
+              Margins
+            </label>
 
-      <div class="grigri-devtool__tool" data-ui="tool">
-        <label for="max-width">
-          Container Max Width
-          <i data-ui="max-width-value"></i>
-        </label>
+            <div class="grigri-devtool__manual">
+              <input
+                class="grigri-devtool__input"
+                type="text"
+                data-control="margins-value"
+              >
+              rem
+            </div>
+          </div>
 
-        <input
-          id="max-width"
-          class="grigri-devtool__range"
-          type="range"
-          min="480"
-          max="2048"
-          step="8"
-          data-control="max-width"
-        >
-      </div>
+          <input
+            id="margins"
+            class="grigri-devtool__range"
+            type="range"
+            min="0.5"
+            max="10"
+            step="0.5"
+            data-control="margins"
+          >
+        </div>
 
+        <div class="grigri-devtool__tool" data-ui="tool">
+          <div class="grigri-devtool__label">
+            <label for="spacing">
+              Spacing
+            </label>
+
+            <div class="grigri-devtool__manual">
+              <input
+                class="grigri-devtool__input"
+                type="text"
+                data-control="spacing-value"
+              >
+              rem
+            </div>
+          </div>
+
+          <input
+            id="spacing"
+            class="grigri-devtool__range"
+            type="range"
+            min="0"
+            max="5"
+            step="0.05"
+            data-control="spacing"
+          >
+        </div>
+
+        <div class="grigri-devtool__tool" data-ui="tool">
+          <div class="grigri-devtool__label">
+            <label for="max-width">
+              Container Width
+            </label>
+
+            <div class="grigri-devtool__manual">
+              <input
+                class="grigri-devtool__input"
+                type="text"
+                data-control="max-width-value"
+              >
+              px
+            </div>
+          </div>
+
+          <input
+            id="max-width"
+            class="grigri-devtool__range"
+            type="range"
+            min="480"
+            max="2048"
+            step="8"
+            data-control="max-width"
+          >
+        </div>
+      </section>
     </div>
   </div>
 

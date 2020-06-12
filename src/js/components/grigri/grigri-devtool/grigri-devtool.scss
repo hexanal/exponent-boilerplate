@@ -5,9 +5,7 @@
   bottom: 0;
   z-index: 100;
   width: 100%;
-  padding: 1.5rem;
-  padding-bottom: 2.5rem;
-  border-top: 2px solid hotpink;
+  border-top: 2px solid var(--color-subtle);
   background-color: white;
   transform: translateY(100%) translateY(-2px);
   transition: transform 500ms var(--ease);
@@ -26,7 +24,7 @@
   width: 2.5rem;
   height: 2.5rem;
   padding: 0.25rem;
-  border: 2px solid hotpink;
+  border: 2px solid var(--color-subtle);
   border-radius: 0.5rem 0.5rem 0 0;
   border-bottom: 0;
   background-color: white;
@@ -38,29 +36,64 @@
   }
 
   &:hover {
-    background-color: hotpink;
+    background-color: var(--color-subtle);
   }
 }
 
-.grigri-devtool__toolbox {
+// .grigri-devtool__toolbox { }
+
+.grigri-devtool__tool-section {
   display: grid;
   grid-template-columns: repeat(auto-fill, 15rem);
   grid-gap: 4rem;
+  padding: 1.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .grigri-devtool__tool {
   label {
-    display: flex;
-    justify-content: space-between;
     color: var(--color-subtle);
-    padding: 0.5rem 0;
   }
+}
 
-  i {
-    font-weight: 500;
-    font-style: normal;
-    color: var(--color-bright);
-    border-bottom: 2px solid currentColor;
+.grigri-devtool__label {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-subtle);
+  padding: 0.5rem 0 0;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid currentColor;;
+}
+
+.grigri-devtool__manual {
+  display: flex;
+  align-items: center;
+  width: 5rem;
+  color: var(--color-bright);
+}
+
+.grigri-devtool__input {
+  display: block;
+  width: 3rem;
+  margin-right: 0.25rem;
+  margin-bottom: -2px; // flush with label border :)
+  font-family: var(--font-plex);
+  font-weight: 500;
+  font-style: normal;
+  text-align: right;
+  color: var(--color-bright);
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-bottom: 2px solid currentColor;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    border-style: dashed;
+    border-color: currentColor;
+  }
+  &:focus {
+    border-color: orange;
   }
 }
 

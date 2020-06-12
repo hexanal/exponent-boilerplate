@@ -13,6 +13,11 @@
     position: relative; // to position the margins
     height: 100%;
   }
+
+  display: none;
+  html[data-show-columns="true"] & {
+    display: block;
+  }
 }
 
 .ggh-margin, // alias
@@ -23,6 +28,11 @@
   height: 100%;
   width: var(--margins);
   background-color: var(--helper-margin-color);
+
+  display: none;
+  html[data-show-margins="true"] & {
+    display: block;
+  }
 }
 .ggh-margin-right,
 .grigri-helper-margin-right {
@@ -41,6 +51,7 @@
 
   &:before,
   &:after {
+    display: none;
     content: '';
     pointer-events: none;
     position: absolute;
@@ -55,6 +66,13 @@
   &:after {
     bottom: unset;
     top: 100%;
+  }
+
+  html[data-show-spacing="true"] & {
+    &:before,
+    &:after {
+      display: block;
+    }
   }
 }
 
@@ -75,5 +93,10 @@
     background-image: linear-gradient(to bottom, var(--helper-lines-color) 0%, var(--helper-lines-color) 50%, transparent 50%, transparent 100%);
     background-size: 2rem 2rem;
     background-attachment: var(--helper-lines-mode);
+  }
+
+  display: none;
+  html[data-show-vertical-rhythm="true"] & {
+    display: block;
   }
 }
