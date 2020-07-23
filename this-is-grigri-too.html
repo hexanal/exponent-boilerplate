@@ -53,7 +53,36 @@
       </div>
     </div>
 
+    <div class="spaced grid col-sm-4 ggh-spacing">
+      <div class="bg-orange" data-component="box-measure">
+        <img class="i" src="/dist/assets/images/box.svg">
+      </div>
+      <div class="bg-orange" data-component="box-measure">
+        <img class="i" src="/dist/assets/images/box.svg">
+      </div>
+      <div class="bg-orange" data-component="box-measure">
+        <img class="i" src="/dist/assets/images/box.svg">
+      </div>
+      <div class="bg-orange" data-component="box-measure">
+        <img class="i" src="/dist/assets/images/box.svg">
+      </div>
+
+      <div class="bg-orange" data-component="box-measure">
+        <img class="i" src="/dist/assets/images/box.svg">
+      </div>
+      <div class="bg-orange" data-component="box-measure">
+        <img class="i" src="/dist/assets/images/box.svg">
+      </div>
+      <div class="bg-orange" data-component="box-measure">
+        <img class="i" src="/dist/assets/images/box.svg">
+      </div>
+      <div class="bg-orange" data-component="box-measure">
+        <img class="i" src="/dist/assets/images/box.svg">
+      </div>
+    </div>
+
   </div>
+
 
   <div class="grigri-devtool" data-component="grigri-devtool">
     <button class="grigri-devtool__trigger" data-control="trigger" title="Open grigri's toolbox">
@@ -62,28 +91,28 @@
 
     <div class="grigri-devtool__toolbox">
 
-      <section class="grigri-devtool__tool-section">
+      <section class="grigri-devtool__tweaker grid col-sm-2 col-md-3">
         <div class="grigri-devtool__tool" data-ui="tool">
-          <label>
-            Show vertical columns
-            <input type="checkbox" data-control="toggle-columns">
-          </label>
+          <div class="grigri-devtool__toggle">
+            <label>
+              <input type="checkbox" data-control="toggle-columns">
+              Show vertical columns
+            </label>
+          </div>
+          <div class="grigri-devtool__toggle">
+            <label>
+              <input type="checkbox" data-control="toggle-margins">
+              Show margins
+            </label>
+          </div>
+          <div class="grigri-devtool__toggle">
+            <label>
+              <input type="checkbox" data-control="toggle-spacing">
+              Show spacing
+            </label>
+          </div>
         </div>
-        <div class="grigri-devtool__tool" data-ui="tool">
-          <label>
-            Show margins
-            <input type="checkbox" data-control="toggle-margins">
-          </label>
-        </div>
-        <div class="grigri-devtool__tool" data-ui="tool">
-          <label>
-            Show spacing
-            <input type="checkbox" data-control="toggle-spacing">
-          </label>
-        </div>
-      </section>
 
-      <section class="grigri-devtool__tool-section">
         <div class="grigri-devtool__tool" data-ui="tool">
           <div class="grigri-devtool__label">
             <label for="gutters">
@@ -104,7 +133,7 @@
             id="gutters"
             class="grigri-devtool__range"
             type="range"
-            min="0.5"
+            min="0"
             max="4"
             step="0.05"
             data-control="gutters"
@@ -131,7 +160,7 @@
             id="margins"
             class="grigri-devtool__range"
             type="range"
-            min="0.5"
+            min="0"
             max="10"
             step="0.5"
             data-control="margins"
@@ -159,8 +188,8 @@
             class="grigri-devtool__range"
             type="range"
             min="0"
-            max="5"
-            step="0.05"
+            max="20"
+            step="0.5"
             data-control="spacing"
           >
         </div>

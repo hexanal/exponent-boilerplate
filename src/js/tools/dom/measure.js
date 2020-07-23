@@ -6,3 +6,8 @@ export default function measure(element, cb) {
   resizeObserver.observe(element);
   return resizeObserver;
 }
+
+export function getMeasurements(element) {
+  const { width, height } = element.getBoundingClientRect();
+  return { width, height };
+}

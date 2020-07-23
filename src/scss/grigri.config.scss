@@ -20,17 +20,14 @@ $mq-xxl: 1920px;
   --helper-lines-color: magenta;
   --helper-spacing-color: orangered;
   --helper-margin-color: lime;
-  --helper-opacity: 0.1;
-}
+  --helper-opacity: 0.5;
 
-@media (min-width: $mq-sm) {
-  :root {
+  @media (min-width: $mq-sm) {
     --margins: 2rem;
     --gutters: 1rem;
   }
-}
-@media (min-width: $mq-xl) {
-  :root {
+
+  @media (min-width: $mq-xl) {
     --margins: 4rem;
     --gutters: 1.5rem;
   }

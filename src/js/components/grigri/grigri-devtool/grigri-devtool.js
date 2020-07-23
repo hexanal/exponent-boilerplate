@@ -1,9 +1,12 @@
 import stater from 'tools/stater';
+import { getMeasurements } from 'tools/dom/measure';
 import { clamp } from 'lodash';
 
 import './grigri-devtool.scss';
 
-export default function({element, control, ui}) {
+const DEVTOOL_MARGIN_BUFFER = 64;
+
+export default function({element, control}) {
   const state = stater({
     active: false,
     showColumns: false,
@@ -16,7 +19,16 @@ export default function({element, control, ui}) {
     spacing: document.documentElement.style.getPropertyValue('--spacing')
   });
 
-  state.active.changed(active => element.dataset.active = active);
+  state.active.changed(active => {
+    element.dataset.active = active;
+
+    if (active) {
+      const { height } = getMeasurements(element);
+      document.body.style.marginBottom = `${height + DEVTOOL_MARGIN_BUFFER}px`;
+    } else {
+      document.body.style.marginBottom = '0px';
+    }
+  });
   state.showColumns.changed(active => document.documentElement.dataset.showColumns = active);
   state.showMargins.changed(active => document.documentElement.dataset.showMargins = active);
   state.showSpacing.changed(active => document.documentElement.dataset.showSpacing = active);
@@ -42,16 +54,12 @@ export default function({element, control, ui}) {
     control['max-width-value'].value = val;
   });
 
-  function toggleUI() {
-    state.active.toggle();
-  }
-
   function setGridPropValue(prop, value) {
     state[prop].set(value);
     return value;
   }
 
-  control.trigger.addEventListener('click', toggleUI);
+  control.trigger.addEventListener('click', function() { state.active.toggle(); });
   control['toggle-columns'].addEventListener('change', e => state.showColumns.toggle() );
   control['toggle-margins'].addEventListener('change', e => state.showMargins.toggle() );
   control['toggle-spacing'].addEventListener('change', e => state.showSpacing.toggle() );

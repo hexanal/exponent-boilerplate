@@ -1,4 +1,24 @@
+// allow animating the body to give some space
+body {
+  transition: margin-bottom 1s 500ms cubic-bezier(0,1,.6,1);
+}
+
 .grigri-devtool {
+  // these allows ANOTHER grid system to exist in parallel :)
+  --margins: 1rem;
+  --gutters: 2rem;
+  --spacing: 3.5rem;
+  --max-width: 1200px;
+  --narrow-width: 800px;
+  --wide-width: 1680px;
+  --multiplier: 3;
+  --col-width: calc( (100% - (var(--gutters) * 11) ) / 12);
+  --helper-cols-color: white;
+  --helper-lines-color: magenta;
+  --helper-spacing-color: orangered;
+  --helper-margin-color: lime;
+  --helper-opacity: 0.1;
+
   --ease: cubic-bezier(0,1,.6,1);
   position: fixed;
   left: 0;
@@ -31,21 +51,24 @@
   outline: none;
   cursor: pointer;
 
-  span {
-    margin-left: -0.28rem; // ?!?
-  }
-
   &:hover {
     background-color: var(--color-subtle);
   }
 }
 
-// .grigri-devtool__toolbox { }
+.grigri-devtool__toggle {
+  width: 100%;
 
-.grigri-devtool__tool-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 15rem);
-  grid-gap: 4rem;
+  + .grigri-devtool__toggle {
+    margin-top: 0.5rem;
+  }
+}
+
+.grigri-devtool__toolbox {
+  overflow: auto;
+}
+
+.grigri-devtool__tweaker {
   padding: 1.5rem;
   padding-bottom: 2.5rem;
 }
