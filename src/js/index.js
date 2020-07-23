@@ -1,9 +1,6 @@
 // load the core "lib"
 import Exponent from 'exponent-core';
 
-// load your project settings
-import settings from './settings';
-
 // middlewares: kind of like plugins
 // they "augment" the props that are passed to components
 import Messaging from 'middlewares/Messaging';

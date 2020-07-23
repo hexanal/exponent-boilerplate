@@ -1,9 +1,10 @@
 {
-  "name": "exponent",
-  "version": "0.0.1",
-  "description": "An experimental Javascript component framework/boilerplate that aims to play well with old-school CMS like Wordpress, Drupal, etc.",
+  "name": "exponent-boilerplate",
+  "version": "0.1.0",
+  "description": "Boilerplate/Example project which uses exponent-core",
   "scripts": {
-    "start": "./node_modules/webpack/bin/webpack.js --watch"
+    "start": "./node_modules/webpack/bin/webpack.js --env.NODE_ENV=development --env.development --watch",
+    "build": "./node_modules/webpack/bin/webpack.js --env.NODE_ENV=production --env.production"
   },
   "author": "hexanal",
   "license": "ISC",

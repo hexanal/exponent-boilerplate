@@ -5,9 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const ExponentConfig = require('./exponent.config.js');
 
-module.exports = {
-  mode: ExponentConfig.settings.mode,
-  devtool: 'source-map',
+module.exports = env => ({
+  mode: env.NODE_ENV,
+  devtool: (env.NODE_ENV !== 'production') && 'source-map',
 
   module: {
     rules: [
@@ -114,8 +114,8 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: `${ExponentConfig.cssStylesFilename}`,
-      hmr: ExponentConfig.settings.mode === 'development'
+      hmr: env.NODE_ENV === 'development'
     })
   ],
 
-};
+});
