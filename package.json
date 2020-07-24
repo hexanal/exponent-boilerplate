@@ -27,6 +27,7 @@
   "dependencies": {
     "lodash": "^4.17.15",
     "lodash.debounce": "^4.0.8",
-    "lodash.truncate": "^4.4.2"
+    "lodash.truncate": "^4.4.2",
+    "mousetrap": "^1.6.5"
   }
 }

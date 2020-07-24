@@ -17,6 +17,7 @@ import example from 'components/example/example';
 import grigriDevtool from 'components/grigri/grigri-devtool/grigri-devtool';
 import lazyImage from 'components/lazy-image/lazy-image';
 import measured from 'components/measured/measured';
+import reeferExample from 'components/reefer-example/reefer-example';
 import scroll from 'components/scroll/scroll';
 import shaper from 'components/shaper/shaper';
 import shaperCell from 'components/shaper/shaper-cell';
@@ -26,12 +27,6 @@ import zoomImage from 'components/zoom-image/zoom-image';
 
 /* that's one way to do it: */
 Exponent
-  /**
-   * The configure method allows you to override Exponent's default settings;
-   * it expects an object.
-   */
-  .configure(settings)
-
   /* The 'use' method expects an array of middlewares (or just one, eh) */
   .use([ Messaging ])
 
@@ -51,6 +46,7 @@ Exponent
     'grigri-devtool': grigriDevtool,
     'lazy-image': lazyImage,
     measured,
+    'reefer-example': reeferExample,
     toggler,
     truncate,
     shaper,
